@@ -26,7 +26,9 @@
     "coverage": "istanbul cover -x \"distspecs/**/*.js\" --root \"./src/aura\" --include-all-sources --post-require-hook mocha-aura ./node_modules/mocha-runner/bin/runner.js -- --reporter min --quiet \"distspecs/**/*.js\" html text-summary",
     "postcoverage": "rm -rf ./distspecs",
     "coverage-jenkins": "npm run coverage && istanbul report cobertura",
-    "nuke": "rm -rf ./node_modules && rm -f yarn.lock && yarn cache clean && yarn install"
+    "nuke": "rm -rf ./node_modules && rm -f yarn.lock && yarn cache clean && yarn install",
+    "fun": "concurrently --kill-others \"npm run watch-coverage\" \"npm run live-server\"",
+    "live-server": "live-server --port=$PORT ./coverage/lcov-report/"
   },
   "auraPath": "./src",
   "devDependencies": {
@@ -34,6 +36,7 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-register": "^6.24.1",
     "chokidar-cli": "^1.2.0",
+    "concurrently": "^3.5.0",
     "istanbul": "^0.4.5"
   },
   "dependencies": {
@@ -51,5 +54,4 @@
     "sinon": "^2.3.0",
     "sinon-chai": "^2.10.0"
   }
-  
 }
