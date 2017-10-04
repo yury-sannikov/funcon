@@ -1,0 +1,23 @@
+{
+  "name": "funcon",
+  "version": "1.0.0",
+  "description": "mocha-aura workshop for FUNCon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yury-sannikov/funcon.git"
+  },
+  "keywords": [
+    "FUNCon",
+    "mocha-aura"
+  ],
+  "author": "Yuriy Sannikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yury-sannikov/funcon/issues"
+  },
+  "homepage": "https://github.com/yury-sannikov/funcon#readme"
+}
