@@ -21,7 +21,7 @@
     "test": "mocha  --require babel-register --require mocha-aura --reporter progress \"specs/**/*.js\"",
     "test-jenkins": "JUNIT_REPORT_STACK=1 mocha --require babel-register --require mocha-aura --no-colors --reporter mocha-multi --reporter-options mochawesome=/dev/null,mocha-jenkins-reporter=- 'specs/**/*.js'",
     "watch": "chokidar --initial './specs/**' '../src/aura/**/*.js' -c 'npm run test'",
-    "watch-coverage": "chokidar --initial './specs/**' '../src/aura/**/*.js' -c 'npm run coverage'",
+    "watch-coverage": "chokidar --initial './specs/**' './src/aura/**/*.js' -c 'npm run coverage'",
     "precoverage": "babel -q ./specs -d ./distspecs",
     "coverage": "istanbul cover -x \"distspecs/**/*.js\" --root \"./src/aura\" --include-all-sources --post-require-hook mocha-aura ./node_modules/mocha-runner/bin/runner.js -- --reporter min --quiet \"distspecs/**/*.js\" html text-summary",
     "postcoverage": "rm -rf ./distspecs",

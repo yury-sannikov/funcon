@@ -75,6 +75,24 @@ class FUNConController {
         controller.doInit(component, null, helper);
         expect(helper.doInit).to.have.been.calledWith(component);
     }
+
+    // @testMethod('handleFieldChangeEvent should not call checkDateSelected')
+    // @inject('agenda', 'weekSelected')
+    // @inject('agenda', 'daySelected')
+    // @inject('eventAgenda', 'weekSelected')
+    // @testMethod('handleFieldChangeEvent should call checkDateSelected')
+    // @inject('eventAgenda', 'daySelected')
+
+    // handleFieldChangeEvent(group, fieldId) {
+    //     const component = componentFactory();
+    //     const event = eventFactory({group, fieldId, value: 'value'});
+    //     controller.handleFieldChangeEvent(component, event, helper);
+    //     if (event.getParam('group') === 'eventAgenda' && event.getParam('fieldId') === 'daySelected') {
+    //         expect(helper.checkDateSelected).to.have.been.calledWith(component, event.getParam('value'));
+    //     } else {
+    //         expect(helper.checkDateSelected).not.to.have.been.called;
+    //     }
+    // }
 }
 
 classyRegister(FUNConController);
