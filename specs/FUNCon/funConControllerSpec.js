@@ -41,6 +41,9 @@ const { isTest, testMethod, inject, runBeforeEach, runBefore, runAfter, runAfter
 const controller = require('aura/FUNCon/FUNConController');
 const helper = require('aura/FUNCon/FUNConHelper');
 
+const SeatingEvent = {fixed: {isSeatingEvent: true}}
+const NonSeatingEvent = {fixed: {isSeatingEvent: false}}
+
 @isTest
 class FUNConController {
 
@@ -77,16 +80,26 @@ class FUNConController {
     }
 
     // @testMethod('handleFieldChangeEvent should not call checkDateSelected')
-    // @inject('agenda', 'weekSelected')
-    // @inject('agenda', 'daySelected')
-    // @inject('eventAgenda', 'weekSelected')
+    // @inject('agenda', 'weekSelected', LTEEvent(SeatingEvent))
+    // @inject('agenda', 'daySelected', LTEEvent(SeatingEvent))
+    // @inject('eventAgenda', 'weekSelected', LTEEvent(SeatingEvent))
+    
     // @testMethod('handleFieldChangeEvent should call checkDateSelected')
-    // @inject('eventAgenda', 'daySelected')
+    // @inject('eventAgenda', 'daySelected', LTEEvent(SeatingEvent))
 
-    // handleFieldChangeEvent(group, fieldId) {
-    //     const component = componentFactory();
+    // @testMethod('handleFieldChangeEvent should exit for non-seating events')
+    // @inject('', '', LTEEvent(NonSeatingEvent))
+
+    // handleFieldChangeEvent(group, fieldId, eventObj) {
+    //     const component = componentFactory({eventObj});
     //     const event = eventFactory({group, fieldId, value: 'value'});
     //     controller.handleFieldChangeEvent(component, event, helper);
+
+    //     if (!component.get('v.eventObj.isSeatingEvent')) {
+    //         expect(event.getParam).not.to.have.been.called;
+    //         return;
+    //     }
+
     //     if (event.getParam('group') === 'eventAgenda' && event.getParam('fieldId') === 'daySelected') {
     //         expect(helper.checkDateSelected).to.have.been.calledWith(component, event.getParam('value'));
     //     } else {

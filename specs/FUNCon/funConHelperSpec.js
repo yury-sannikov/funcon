@@ -76,13 +76,13 @@ class FUNConHelper {
         this.sandbox.restore();
     }
 
-    @testMethod('doInit should init events and call helper createComponents')
-    doInit() {
-        const component = componentFactory();
-        helper.doInit(component);
-        expect(component.get('v.events')).to.eql([]);
-        expect(helper.createComponents).to.have.been.calledWith(component);
-    }
+    // @testMethod('doInit should init events and call helper createComponents')
+    // doInit() {
+    //     const component = componentFactory();
+    //     helper.doInit(component);
+    //     expect(component.get('v.events')).to.eql([]);
+    //     expect(helper.createComponents).to.have.been.calledWith(component);
+    // }
 
     // @testMethod('checkDateSelected should show sessionDiv if selected')
     // @inject(true)
